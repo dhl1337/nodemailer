@@ -1,5 +1,5 @@
 var nodemailer = require('nodemailer');
-var config = require('../config/config');
+var config = require('../configs/config');
 module.exports = {
     send: function (req, res) {
         var transporter = nodemailer.createTransport({
@@ -10,7 +10,7 @@ module.exports = {
             }
         });
         var mailOptions = {
-            from: 'Dan Le <dhl1337@gmail.com>',
+            from: 'Dan Le '+config.email.username+'',
             to: 'dhl1337@gmail.com',
             subject: 'hello',
             text: 'You have a new message',
